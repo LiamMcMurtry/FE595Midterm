@@ -146,6 +146,8 @@ def definition():
 def translate():
     post_json = flask.request.json
     string = post_json.get('string')
+    blob = TextBlob('string')
+    blob.translate(to='es')
     if string:
         return {'success': True, 'response': string}
     else:
